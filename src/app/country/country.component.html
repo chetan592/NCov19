@@ -1,0 +1,155 @@
+<div class="global-container">
+  <div class="spinnerclass" *ngIf="progressSpinner">
+    <mat-spinner class="custom-spinner"> </mat-spinner>
+  </div>
+
+  <div *ngIf="!progressSpinnerCon" fxHide="true" fxShow.gt-xs>
+    <div class="row">
+      <div class="box_container">
+        <div class="number_container_red">
+          <span style="font-size: x-large; color: #e53e3f;">{{
+            numberWithCommas(CountryData.cases)
+          }}</span>
+        </div>
+        <div class="type_container_red">
+          <span style="color: white;"> Confirmed</span>
+        </div>
+      </div>
+
+      <div class="box_container">
+        <div class="number_container">
+          <span style="font-size: x-large; color: #38a169;">{{
+            numberWithCommas(CountryData.recovered)
+          }}</span>
+        </div>
+        <div class="type_container">
+          <span style="color: white;"> Recovered</span>
+        </div>
+      </div>
+
+      <div class="box_container">
+        <div class="number_container_grey">
+          <span style="font-size: x-large; color: #718096;">{{
+            numberWithCommas(CountryData.tests)
+          }}</span>
+        </div>
+        <div class="type_container_grey">
+          <span style="color: white;"> Tests</span>
+        </div>
+      </div>
+
+      <div class="box_container">
+        <div class="number_container">
+          <span style="font-size: x-large; color: #38a169;">{{
+            numberWithCommas(CountryData.deaths)
+          }}</span>
+        </div>
+        <div class="type_container">
+          <span style="color: white;"> Active</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="!progressSpinner">
+      <div class="highchart-container" *ngIf="loadChart">
+        <highcharts-chart
+          class="highchart"
+          [Highcharts]="Highcharts"
+          [options]="chartOptions"
+        >
+        </highcharts-chart>
+      </div>
+      <div *ngIf="!loadChart">
+        <span>DATA NOT AVAILABLE FOR THIS COUNTRY</span>
+      </div>
+    </div>
+  </div>
+
+  <!--mobile view-->
+  <div
+    *ngIf="!progressSpinner"
+    class="mobile-view"
+    fxLayout="column"
+    fxHide="true"
+    fxShow.lt-sm
+  >
+    <div class="country-name">
+      <div
+        style="background-color: #1f2833; border-radius: 8px; margin-left: 5px;"
+      >
+        <span
+          style="
+            font-size: xx-large;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            margin: 5px;
+          "
+        >
+          {{ activeCountry }}
+        </span>
+      </div>
+    </div>
+
+    <div class="mobile-row" fxLayout="row">
+      <div class="box_container">
+        <div class="number_container_red">
+          <span style="font-size: x-large; color: #e53e3f;">{{
+            numberWithCommas(CountryData.cases)
+          }}</span>
+        </div>
+        <div class="type_container_red">
+          <span style="color: white;"> Confirmed</span>
+        </div>
+      </div>
+
+      <div class="box_container">
+        <div class="number_container">
+          <span style="font-size: x-large; color: #38a169;">{{
+            numberWithCommas(CountryData.recovered)
+          }}</span>
+        </div>
+        <div class="type_container">
+          <span style="color: white;"> Recovered</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-row" fxLayout="row">
+      <div class="box_container">
+        <div class="number_container_grey">
+          <span style="font-size: x-large; color: #718096;">{{
+            numberWithCommas(CountryData.tests)
+          }}</span>
+        </div>
+        <div class="type_container_grey">
+          <span style="color: white;"> Tests</span>
+        </div>
+      </div>
+
+      <div class="box_container">
+        <div class="number_container">
+          <span style="font-size: x-large; color: #38a169;">{{
+            numberWithCommas(CountryData.deaths)
+          }}</span>
+        </div>
+        <div class="type_container">
+          <span style="color: white;"> Active</span>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!progressSpinner">
+      <div class="highchart-container" *ngIf="loadChart">
+        <highcharts-chart
+          class="highchart"
+          [Highcharts]="Highcharts"
+          [options]="chartOptions"
+        >
+        </highcharts-chart>
+      </div>
+      <div *ngIf="!loadChart">
+        <span>DATA NOT AVAILABLE FOR THIS COUNTRY</span>
+      </div>
+    </div>
+  </div>
+</div>
