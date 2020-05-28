@@ -27,6 +27,7 @@ export class AppComponent {
   states: Array<string> = [];
   loaded = false;
   mobileQuery: MediaQueryList;
+  layout;
   //private paginator:MatPaginator
   /*
   worldStats= {
@@ -50,7 +51,9 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.mediaSub = this.media.media$.subscribe((change: MediaChange) => {
+      this.layout = change.mqAlias;
       console.log(change.mediaQuery);
+      console.log(change.mqAlias);
     });
 
     this.sub2 = timer(0, 610000)
@@ -65,7 +68,6 @@ export class AppComponent {
   }
 
   openNav() {
-    console.log("open called");
     if (this.navbaropen == false) {
       document.getElementById("mySidenav").style.width = "250px";
       this.navbaropen = true;
@@ -75,6 +77,28 @@ export class AppComponent {
       document.getElementById("mySidenav").style.width = "0";
       this.navbaropen = false;
       console.log("close");
+    }
+  }
+
+  openNavScroll() {
+    if (this.navbaropen == false) {
+      document.getElementById("mySidenav").style.width = "250px";
+      this.navbaropen = true;
+
+      console.log("open");
+    } else if (this.navbaropen == true) {
+      document.getElementById("mySidenav").style.width = "0";
+      this.navbaropen = false;
+      console.log("close");
+    }
+    if (this.layout == "xs") {
+      setTimeout(() => {
+        let ele = document.getElementById("routerDiv");
+        ele.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
     }
   }
 

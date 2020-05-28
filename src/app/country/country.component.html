@@ -4,6 +4,23 @@
   </div>
 
   <div *ngIf="!progressSpinnerCon" fxHide="true" fxShow.gt-xs>
+    <div class="country-name">
+      <div
+        style="background-color: #1f2833; border-radius: 8px; margin-left: 5px;"
+      >
+        <span
+          style="
+            font-size: xx-large;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            margin: 5px;
+          "
+        >
+          {{ activeCountry }}
+        </span>
+      </div>
+    </div>
+
     <div class="row">
       <div class="box_container">
         <div class="number_container_red">
@@ -41,7 +58,7 @@
       <div class="box_container">
         <div class="number_container">
           <span style="font-size: x-large; color: #38a169;">{{
-            numberWithCommas(CountryData.deaths)
+            numberWithCommas(CountryData.active)
           }}</span>
         </div>
         <div class="type_container">
@@ -129,7 +146,7 @@
       <div class="box_container">
         <div class="number_container">
           <span style="font-size: x-large; color: #38a169;">{{
-            numberWithCommas(CountryData.deaths)
+            numberWithCommas(CountryData.active)
           }}</span>
         </div>
         <div class="type_container">

@@ -8,7 +8,7 @@
     <span style="padding-left: 5px; color: floralwhite;">Covid-19 Tracker</span>
     <span class="example-fill-remaining-space"></span>
     <div fxHide="true" fxShow.gt-md>
-      <span class="toolbarSpan" routerLink="">Global</span>
+      <span class="toolbarSpan" routerLink="" >Global</span>
       <!--<a href="https://learnprogramminglanguagee.blogspot.com/2020/05/how-to-learn-new-programming-language.html" class="toolbarSpan"
         target="_blank">blog</a>-->
       <span
@@ -47,7 +47,9 @@
   </mat-toolbar>
 
   <div id="mySidenav" class="sidenav">
-    <a mat-list-item class="toolbarSpan" routerLink="">Global</a>
+    <a mat-list-item class="toolbarSpan" routerLink="" (click)="openNav()"
+      >Global</a
+    >
     <!--<a href="https://learnprogramminglanguagee.blogspot.com/2020/05/how-to-learn-new-programming-language.html" class="toolbarSpan"
         target="_blank">blog</a>-->
     <a
@@ -55,6 +57,7 @@
       class="toolbarSpan"
       routerLink="/continent_asia"
       [queryParams]="{ continent: 'Asia' }"
+      (click)="openNavScroll()"
       >Asia</a
     >
     <a
@@ -62,6 +65,7 @@
       class="toolbarSpan"
       routerLink="/continent_europe"
       [queryParams]="{ continent: 'Europe' }"
+      (click)="openNavScroll()"
       >Europe</a
     >
     <a
@@ -69,6 +73,7 @@
       class="toolbarSpan"
       routerLink="/continent_africa"
       [queryParams]="{ continent: 'Africa' }"
+      (click)="openNavScroll()"
       >Africa</a
     >
     <a
@@ -76,6 +81,7 @@
       class="toolbarSpan"
       routerLink="/continent_north_america"
       [queryParams]="{ continent: 'North America' }"
+      (click)="openNavScroll()"
       >North America</a
     >
     <a
@@ -83,10 +89,17 @@
       class="toolbarSpan"
       routerLink="/continent_south_america"
       [queryParams]="{ continent: 'South America' }"
+      (click)="openNavScroll()"
       >South America</a
     >
     <!--<a mat-list-item class="toolbarSpan" routerLink="/continent_australia" [queryParams]="{continent:'Australia'}">Australia</a>-->
-    <a mat-list-item class="toolbarSpan" routerLink="/about">About</a>
+    <a
+      mat-list-item
+      class="toolbarSpan"
+      routerLink="/about"
+      (click)="openNavScroll()"
+      >About</a
+    >
   </div>
   <mat-spinner class="mat-spinner-mobile" *ngIf="!loaded"> </mat-spinner>
   <div fxLayout="row" class="zero" fxLayout.xs="column" *ngIf="loaded">
@@ -185,7 +198,7 @@
         </mat-card>
       </div>
     </div>
-    <div fxFlex="80" fxLayoutAlign.xs="center">
+    <div id="routerDiv" fxFlex="80" fxLayoutAlign.xs="center">
       <router-outlet></router-outlet>
     </div>
   </div>
