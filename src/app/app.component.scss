@@ -120,3 +120,10 @@
     margin-top: 5rem;
   }
 }
+
+@media screen and (min-width: 599.9px) and (max-width: 700px) {
+  .worldDataClass {
+    min-width: 250px;
+    height: 91vh;
+  }
+}

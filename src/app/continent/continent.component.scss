@@ -169,3 +169,39 @@
     height: 2cm;
   }
 }
+
+@media screen and (min-width: 599.9px) and (max-width: 700px) {
+  .box_container {
+    width: 150px;
+  }
+
+  .type_container {
+    width: 100%;
+    height: 0.7cm;
+  }
+
+  .number_container {
+    width: 100%;
+    height: 2cm;
+  }
+
+  .type_container_red {
+    width: 100%;
+    height: 0.7cm;
+  }
+
+  .number_container_red {
+    width: 100%;
+    height: 2cm;
+  }
+
+  .type_container_grey {
+    width: 100%;
+    height: 0.7cm;
+  }
+
+  .number_container_grey {
+    width: 100%;
+    height: 2cm;
+  }
+}
